@@ -6,7 +6,7 @@
 /*   By: alcohen <alcohen@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 16:45:40 by alcohen           #+#    #+#             */
-/*   Updated: 2019/11/08 14:25:54 by alcohen          ###   ########.fr       */
+/*   Updated: 2019/11/14 13:30:48 by alcohen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 		return (-1);
 	int fd = open(argv[1], O_RDONLY);
 
-	printf("%d", fd);
+	//printf("%d", fd);
 	if (fd < 0)
 		return (-1);
 	while (get_next_line(fd, &line))
