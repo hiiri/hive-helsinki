@@ -1,0 +1,5 @@
+ifconfig -a | sed -E 's/[[:blank:]:].*//;/^$/d'
+
+# sed -E 's/[[:blank:]:]' - match spaces and tabs etc
+# .* - match any character any amount of times
+# /^$/d - delete empty lines (^ = start of string, $ = end of string)
