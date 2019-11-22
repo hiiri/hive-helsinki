@@ -1,0 +1,5 @@
+ifconfig en1 | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}'
+
+# [:xdigit:] = [A-Fa-f0-9] = hexadecimal digits
+# {1,2}: = at least one, but up to two times followed by a :
+# (...){5} = (the previous expession) five times
