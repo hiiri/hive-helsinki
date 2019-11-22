@@ -1,0 +1,7 @@
+#!/bin/bash
+echo -n "Broadcast address: "
+addr=`ifconfig en0 | grep 'broadcast' | cut -d ' ' -f6`
+echo "$addr"
+ping -c 2 $addr > /dev/null
+echo "IP addresses which are part of the same subnet "
+arp -a | grep "10.12" | awk '{print $2}' | tr -d "()"
