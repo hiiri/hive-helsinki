@@ -1,0 +1,4 @@
+kill %1
+
+# kills process number 1 in jobs list
+# "kill $!" kills latest process added to background
