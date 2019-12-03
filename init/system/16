@@ -1,0 +1,9 @@
+cron
+
+# cron instructions are in a file called crontab
+# edit crontab: crontab -e
+# list running commands: crontab -l
+# 
+# * * * * * command
+# format: minute hour day_of_month(1-31) month day_of_week(0-6)
+# * = every
