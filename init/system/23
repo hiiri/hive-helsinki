@@ -2,6 +2,6 @@ Graphic session:
 Menu -> Logout -> Switch User -> Login with new user
 
 SSH:
-"ip a" to see inet address.
+"ip a" and take inet address of ethernet adapter.
 With SSH client and SSH server installed:
 "ssh username@ip_address"
