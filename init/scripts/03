@@ -1,0 +1,18 @@
+#!/bin/bash
+
+echo "What's your name?"
+
+read name
+
+echo -e "\n$name? Now that's a funny one."
+
+rot_name=$(echo $name | tr "A-Za-z" "N-ZA'Mn-za-m")
+
+echo "Mine is $rot_name. It's a lot better."
+
+sleep 4
+
+echo "Let's update our packages"
+
+sudo apt-get update
+sudo apt-get upgrade
