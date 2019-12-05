@@ -1,0 +1,7 @@
+Graphic session:
+Menu -> Logout -> Switch User -> Login with new user
+
+SSH:
+"ip a" to see inet address.
+With SSH client and SSH server installed:
+"ssh username@ip_address"
