@@ -6,13 +6,13 @@
 #    By: mberglun <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/02 17:10:30 by mberglun          #+#    #+#              #
-#    Updated: 2019/12/10 18:16:34 by mberglun         ###   ########.fr        #
+#    Updated: 2019/12/11 19:47:40 by mberglun         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-NAME = fillit
+NAME = valid.test
 
 # Directories, library
 SRC_DIR = ./
@@ -21,7 +21,7 @@ LIB_DIR = ./libft/
 LIB = $(LIB_DIR)libft.a
 
 # Files, library
-SRC_FILES = fillit.c parser.c
+SRC_FILES = valid.c read.c validate.c
 SRCS = $(addprefix $(SRC_DIR), $(SRC_FILES:.c=.o))
 OBJS = $(addprefix $(OBJ_DIR), $(SRC_FILES:.c=.o))
 MKDIR_P = mkdir -p
