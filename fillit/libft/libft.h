@@ -6,7 +6,7 @@
 /*   By: mberglun <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 17:01:31 by mberglun          #+#    #+#             */
-/*   Updated: 2019/12/10 17:30:38 by mberglun         ###   ########.fr       */
+/*   Updated: 2019/12/13 20:01:42 by mberglun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ long				ft_abs(int nb);
 int					ft_intlen(int nb);
 char				*ft_strndup(const char *s1, size_t n);
 double				ft_pow(double n, int exp);
+int					ft_min(int a, int b);
+int					ft_max(int a, int b);
+int					ft_sqrt(int nb);
 
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t len);
