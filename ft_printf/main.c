@@ -2,5 +2,5 @@
 
 int	main(void)
 {
-	ft_printf("Hell%o W%orl%d!");
+	ft_printf("hello\n%s asdfasdf", "YOLO");
 }

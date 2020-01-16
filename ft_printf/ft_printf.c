@@ -6,13 +6,11 @@
 /*   By: alcohen <alcohen@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 16:47:55 by alcohen           #+#    #+#             */
-/*   Updated: 2019/11/25 17:45:54 by alcohen          ###   ########.fr       */
+/*   Updated: 2020/01/16 19:35:40 by alcohen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdarg.h>
+#include "ft_printf.h"
 
 static size_t	count_args(const char *str)
 {
@@ -27,16 +25,30 @@ static size_t	count_args(const char *str)
 
 int				ft_printf(const char *format, ...)
 {
-	va_list	list_ptr;
-	int		args;
+	va_list				list_ptr;
+	int					args;
+	unsigned int		i;
+	unsigned int		j;
+	char				*flag;
 
 	args = count_args(format);
-	printf("%d\n", args);
-	while (*format)
+	i = 0;
+	j = 0;
+	va_start(list_ptr, format);
+	while (format[i])
 	{
-		write(1, &*format, 1);
-		format++;
+		if (format[i] == '%')
+		{
+			flag = get_flag(format);
+		//	handle_flag(flag, list_ptr);
+			j = i;
+		}
+		else
+		{
+			ft_putchar(format[i]);
+		}
+		i++;
 	}
-	//va_start(list_ptr, 
+	ft_putchar('\n');
 	return (0);
 }
