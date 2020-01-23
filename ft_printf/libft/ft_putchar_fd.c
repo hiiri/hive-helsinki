@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alcohen <alcohen@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/25 17:07:07 by alcohen           #+#    #+#             */
-/*   Updated: 2020/01/21 16:15:15 by alcohen          ###   ########.fr       */
+/*   Created: 2019/10/21 15:51:22 by alcohen           #+#    #+#             */
+/*   Updated: 2019/10/31 21:25:21 by alcohen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include <unistd.h>
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include "libft/libft.h"
-
-int		ft_printf(const char *format, ...);
-int		handle_flag(char *flag, va_list list_ptr);
-char	*get_flag(const char *format, int i);
-void	print_int(int d);
-
-#endif
+void	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
+}

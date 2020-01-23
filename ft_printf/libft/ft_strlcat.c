@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alcohen <alcohen@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/25 17:07:07 by alcohen           #+#    #+#             */
-/*   Updated: 2020/01/21 16:15:15 by alcohen          ###   ########.fr       */
+/*   Created: 2019/10/31 20:10:40 by alcohen           #+#    #+#             */
+/*   Updated: 2019/10/31 21:15:37 by alcohen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include <string.h>
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include "libft/libft.h"
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+{
+	size_t	i;
+	size_t	j;
 
-int		ft_printf(const char *format, ...);
-int		handle_flag(char *flag, va_list list_ptr);
-char	*get_flag(const char *format, int i);
-void	print_int(int d);
-
-#endif
+	i = 0;
+	j = 0;
+	while (dst[i] != '\0' && i < dstsize)
+		i++;
+	while (src[j] != '\0' && i + j + 1 < dstsize)
+	{
+		dst[i + j] = src[j];
+		j++;
+	}
+	if (i != dstsize)
+		dst[i + j] = '\0';
+	return (ft_strlen(src) + i);
+}

@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alcohen <alcohen@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/25 17:07:07 by alcohen           #+#    #+#             */
-/*   Updated: 2020/01/21 16:15:15 by alcohen          ###   ########.fr       */
+/*   Created: 2019/10/22 16:51:22 by alcohen           #+#    #+#             */
+/*   Updated: 2019/10/29 19:47:07 by alcohen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include "libft/libft.h"
-
-int		ft_printf(const char *format, ...);
-int		handle_flag(char *flag, va_list list_ptr);
-char	*get_flag(const char *format, int i);
-void	print_int(int d);
-
-#endif
+void	ft_putnbr_fd(int n, int fd)
+{
+	if (n == (-2147483648))
+	{
+		ft_putstr_fd("-2147483648", fd);
+		return ;
+	}
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		n = -n;
+	}
+	if (n < 10)
+	{
+		ft_putchar_fd(n + '0', fd);
+		return ;
+	}
+	ft_putnbr_fd(n / 10, fd);
+	ft_putchar_fd((n % 10 + '0'), fd);
+	return ;
+}

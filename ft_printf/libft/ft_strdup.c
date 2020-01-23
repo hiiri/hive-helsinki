@@ -1,26 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alcohen <alcohen@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/25 17:07:07 by alcohen           #+#    #+#             */
-/*   Updated: 2020/01/21 16:15:15 by alcohen          ###   ########.fr       */
+/*   Created: 2019/10/24 18:46:30 by alcohen           #+#    #+#             */
+/*   Updated: 2019/10/25 19:50:06 by alcohen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include <stdlib.h>
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include "libft/libft.h"
+char	*ft_strdup(const char *s1)
+{
+	int		i;
+	char	*s2;
 
-int		ft_printf(const char *format, ...);
-int		handle_flag(char *flag, va_list list_ptr);
-char	*get_flag(const char *format, int i);
-void	print_int(int d);
-
-#endif
+	i = 0;
+	while (s1[i])
+	{
+		i++;
+	}
+	s2 = (char*)malloc(i * sizeof(char) + 1);
+	if (s2 == NULL)
+	{
+		return (NULL);
+	}
+	i = 0;
+	while (s1[i])
+	{
+		s2[i] = s1[i];
+		i++;
+	}
+	s2[i] = '\0';
+	return (s2);
+}

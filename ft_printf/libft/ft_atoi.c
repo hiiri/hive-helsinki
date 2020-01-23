@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alcohen <alcohen@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/25 17:07:07 by alcohen           #+#    #+#             */
-/*   Updated: 2020/01/21 16:15:15 by alcohen          ###   ########.fr       */
+/*   Created: 2019/10/21 18:02:19 by alcohen           #+#    #+#             */
+/*   Updated: 2019/10/29 18:52:58 by alcohen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include "libft/libft.h"
+int	ft_atoi(const char *str)
+{
+	int nb;
+	int i;
+	int sign;
 
-int		ft_printf(const char *format, ...);
-int		handle_flag(char *flag, va_list list_ptr);
-char	*get_flag(const char *format, int i);
-void	print_int(int d);
-
-#endif
+	nb = 0;
+	i = 0;
+	while (ft_iswhitespace(str[i]))
+		i++;
+	sign = (str[i] == '-') ? -1 : 1;
+	if ((str[i] == '-' || str[i] == '+') && ft_isdigit(str[i + 1]))
+		i++;
+	while (ft_isdigit(str[i]))
+	{
+		nb *= 10;
+		nb += str[i] - '0';
+		i++;
+	}
+	return (nb * sign);
+}

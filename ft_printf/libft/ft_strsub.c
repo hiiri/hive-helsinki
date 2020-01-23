@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alcohen <alcohen@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/25 17:07:07 by alcohen           #+#    #+#             */
-/*   Updated: 2020/01/21 16:15:15 by alcohen          ###   ########.fr       */
+/*   Created: 2019/10/25 20:17:46 by alcohen           #+#    #+#             */
+/*   Updated: 2019/10/28 18:19:59 by alcohen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include <stdlib.h>
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include "libft/libft.h"
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
+{
+	size_t	i;
+	size_t	len_i;
+	char	*sub;
 
-int		ft_printf(const char *format, ...);
-int		handle_flag(char *flag, va_list list_ptr);
-char	*get_flag(const char *format, int i);
-void	print_int(int d);
-
-#endif
+	if (!(sub = (char *)malloc(len * sizeof(char) + 1)))
+	{
+		return (NULL);
+	}
+	i = 0;
+	len_i = 0;
+	while (s[i] && len != len_i)
+	{
+		while (i == start && len_i < len)
+		{
+			sub[len_i] = s[i + len_i];
+			len_i++;
+		}
+		i++;
+	}
+	sub[len_i] = '\0';
+	return (sub);
+}

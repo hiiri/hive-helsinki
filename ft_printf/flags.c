@@ -6,7 +6,7 @@
 /*   By: alcohen <alcohen@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/16 16:59:19 by alcohen           #+#    #+#             */
-/*   Updated: 2020/01/16 19:59:24 by alcohen          ###   ########.fr       */
+/*   Updated: 2020/01/21 16:16:25 by alcohen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	get_conversion(char *flag)
 	{
 		i++;
 	}
-	conversion = flag[i];
+	conversion = flag[i-1];
 	return (conversion);
 }
 
@@ -41,13 +41,14 @@ char	*get_flag(const char *format, int i)
 	return (NULL);
 }
 
-int		handle_flags(char *flag, va_list list_ptr)
+int		handle_flag(char *flag, va_list list_ptr)
 {
 	char	*str;
+	int		d;
 	char	conversion;
 
 	conversion = get_conversion(flag);
-	printf("\nconversion: %c", conversion);
+	printf("\nconversion: %c\n", conversion);
 	/*
 	if (flag == 's')
 	{
@@ -55,5 +56,10 @@ int		handle_flags(char *flag, va_list list_ptr)
 		print_str(str);
 	}
 	*/
+	if (conversion == 'd')
+	{
+		d = va_arg(list_ptr, int);
+		print_int(d);
+	}
 	return (1);
 }

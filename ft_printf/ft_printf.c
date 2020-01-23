@@ -6,7 +6,7 @@
 /*   By: alcohen <alcohen@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 16:47:55 by alcohen           #+#    #+#             */
-/*   Updated: 2020/01/16 19:35:40 by alcohen          ###   ########.fr       */
+/*   Updated: 2020/01/21 16:29:01 by alcohen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,15 @@ int				ft_printf(const char *format, ...)
 
 	args = count_args(format);
 	i = 0;
-	j = 0;
 	va_start(list_ptr, format);
 	while (format[i])
 	{
 		if (format[i] == '%')
 		{
-			flag = get_flag(format);
-		//	handle_flag(flag, list_ptr);
-			j = i;
+			flag = get_flag(format, i);
+			printf("\nFLAG: %s\n", flag);
+			handle_flag(flag, list_ptr);
+			i++;
 		}
 		else
 		{

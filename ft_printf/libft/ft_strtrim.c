@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alcohen <alcohen@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/25 17:07:07 by alcohen           #+#    #+#             */
-/*   Updated: 2020/01/21 16:15:15 by alcohen          ###   ########.fr       */
+/*   Created: 2019/10/25 21:04:21 by alcohen           #+#    #+#             */
+/*   Updated: 2019/10/25 21:48:36 by alcohen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include <stdlib.h>
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include "libft/libft.h"
+char	*ft_strtrim(char const *s)
+{
+	size_t	start;
+	size_t	len;
+	size_t	end;
 
-int		ft_printf(const char *format, ...);
-int		handle_flag(char *flag, va_list list_ptr);
-char	*get_flag(const char *format, int i);
-void	print_int(int d);
-
-#endif
+	start = 0;
+	while (s[start] && ft_iswhitespace(s[start]))
+	{
+		start++;
+	}
+	end = ft_strlen(s) - 1;
+	if (start == end + 1)
+		return ("");
+	while (end >= 0 && ft_iswhitespace(s[end]))
+	{
+		end--;
+	}
+	len = end - start + 1;
+	return (ft_strsub(s, (unsigned int)start, len));
+}
